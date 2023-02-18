@@ -1,8 +1,8 @@
 import sys
 import time
 
-from watchdog.observers import Observer
-import MakeObserver.MakeObserver as MakeObserver
+from MakeObserver import MakeObserver
+from MakeObserver import MyHandler
 
 # メイン関数（最初に呼ばれる関数）
 def main():
@@ -11,9 +11,10 @@ def main():
     
     configFileName = sys.argv[1]
     
-    observer = MakeObserver.MakeObserver().create(configFileName)
+    observer = MakeObserver().create(configFileName)
     startWatch(observer)
     
+    return None
 
 # コマンドライン引数チェック
 def checkArg():
@@ -22,17 +23,16 @@ def checkArg():
         sys.exit(1)
 
 # 監視の開始 <= 監視って言ってるのにwatchを使うてどうなんや。observeじゃね
-def startWatch(observer: Observer):
+def startWatch(observer: MyHandler):
     
-    observer.start()
     print('Stop: Ctrl+C')
     try:
         while True:
             time.sleep(1)
+            observer.watch()
     except KeyboardInterrupt:
-        observer.stop()
-    observer.join()
-
+        pass
+    return None
 # メイン関数の実行
 if __name__ == "__main__":
     main()

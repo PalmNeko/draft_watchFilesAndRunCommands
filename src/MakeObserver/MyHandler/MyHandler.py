@@ -1,17 +1,15 @@
 
 import subprocess
-from watchdog.events import FileSystemEventHandler
-from watchdog.events import FileSystemEvent
 
+from .FileWatcher import FileWatcher
 
-class MyHandler(FileSystemEventHandler):
-    def __init__(self, commands: list[str]):
-        super().__init__()
+class MyHandler(FileWatcher):
+    def __init__(self, commands: list[str], globPaths: list[str]):
+        super().__init__(globPaths)
         self.commands = commands
     
-    def on_any_event(self, event: FileSystemEvent):
-        print('イベント,event: ', event)
+    def on_any(self, changeFiles: list[str]):
+        print('イベント,event: ', changeFiles)
         for command in self.commands:
             subprocess.run(command)
-
-        return            
+        return
