@@ -1,0 +1,9 @@
+{
+    "folder": ".",
+    "on": {
+        "any": [
+            "echo hello",
+            "echo test"
+        ]
+    }
+}

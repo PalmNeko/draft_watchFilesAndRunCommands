@@ -9,16 +9,16 @@ def main():
 
     checkArg()
     
-    folderName = sys.argv[1]
-    command = sys.argv[2]
+    configFileName = sys.argv[1]
     
-    observer = MakeObserver.MakeObserver().create(folderName, command)
+    observer = MakeObserver.MakeObserver().create(configFileName)
     startWatch(observer)
     
+
 # コマンドライン引数チェック
 def checkArg():
-    if len(sys.argv) != 3:
-        print("Usage: python watch.py filename command")
+    if len(sys.argv) != 2:
+        print("Usage: python watch.py configFileName(.json)")
         sys.exit(1)
 
 # 監視の開始 <= 監視って言ってるのにwatchを使うてどうなんや。observeじゃね

@@ -5,10 +5,13 @@ from watchdog.events import FileSystemEvent
 
 
 class MyHandler(FileSystemEventHandler):
-    def __init__(self, command):
+    def __init__(self, commands: list[str]):
         super().__init__()
-        self.command = command
+        self.commands = commands
     
     def on_any_event(self, event: FileSystemEvent):
-        print('変更有,event: ', event)
-        subprocess.run(self.command)
+        print('イベント,event: ', event)
+        for command in self.commands:
+            subprocess.run(command)
+
+        return            
