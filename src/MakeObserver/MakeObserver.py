@@ -1,8 +1,7 @@
 
 
-from MyHandler.MyHandler import MyHandler
+from .MyHandler import *
 from watchdog.observers.polling import PollingObserver
-import MyHandler.MyHandler as MyHandler
 from JsonFile import JsonFile
 
 # オブザーバーの作成
@@ -15,7 +14,7 @@ class MakeObserver:
         commands = jsonObject['on']['any']
         folderName = jsonObject['folder']
         
-        event_handler = MyHandler.MyHandler(commands)
+        event_handler = MyHandler(commands)
 
         observer = PollingObserver()
         observer.schedule(event_handler, path=folderName, recursive=True) # 設定

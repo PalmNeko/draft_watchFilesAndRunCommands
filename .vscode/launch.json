@@ -8,12 +8,12 @@
             "name": "Python: 現在のファイル",
             "type": "python",
             "request": "launch",
-            "program": "${file}",
             "console": "integratedTerminal",
             "justMyCode": true,
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/src/main.py",
             "args": [
-                "./test.txt",
-                "echo test",
+                "./setting-watch.json",
             ]
         }
     ]
