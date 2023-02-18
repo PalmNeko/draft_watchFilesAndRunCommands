@@ -2,7 +2,7 @@ import sys
 import time
 
 from watchdog.observers import Observer
-import MakeObserver
+import MakeObserver.MakeObserver as MakeObserver
 
 # メイン関数（最初に呼ばれる関数）
 def main():

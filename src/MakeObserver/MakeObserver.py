@@ -1,8 +1,8 @@
 
 
-from MyHandler import MyHandler
+from MyHandler.MyHandler import MyHandler
 from watchdog.observers.polling import PollingObserver
-import MyHandler
+import MyHandler.MyHandler as MyHandler
 from JsonFile import JsonFile
 
 # オブザーバーの作成
