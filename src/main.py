@@ -1,5 +1,6 @@
 import sys
 import time
+import os
 
 from MakeObserver import MakeObserver
 from MakeObserver import MyHandler
@@ -10,8 +11,12 @@ def main():
     checkArg()
     
     configFileName = sys.argv[1]
-    
-    observer = MakeObserver().create(configFileName)
+    if os.path.isfile(configFileName) == True:
+        os.chdir(os.path.abspath(os.path.dirname(configFileName)))
+    else:
+        print('設定ファイルが見つかりませんでした。終了します。')
+        return None
+    observer = MakeObserver().create(os.path.basename(configFileName))
     startWatch(observer)
     
     return None

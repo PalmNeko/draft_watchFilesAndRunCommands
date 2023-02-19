@@ -13,7 +13,7 @@
             "cwd": "${workspaceFolder}",
             "program": "${workspaceFolder}/src/main.py",
             "args": [
-                "./setting-watch.json",
+                "./test/setting-watch.json",
             ]
         }
     ]
