@@ -26,6 +26,20 @@
                     "items": {
                         "type": "string"
                     }
+                },
+
+                "modified": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+
+                "deleted": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
                 }
             }
         }

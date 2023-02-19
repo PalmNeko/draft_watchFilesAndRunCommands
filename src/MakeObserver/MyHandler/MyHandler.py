@@ -29,3 +29,25 @@ class MyHandler(FileWatcher):
         for command in self.configs['on']['created']:
             subprocess.run(command)
         return
+
+    def on_modified(self, changeFiles: list[str]):
+        print('ファイルが変更されました。: ', changeFiles)
+        if not (
+                'on' in self.configs and
+                'modified' in self.configs['on']
+            ):
+            return
+        for command in self.configs['on']['modified']:
+            subprocess.run(command)
+        return
+        
+    def on_deleted(self, changeFiles: list[str]):
+        print('ファイルが削除されました。: ', changeFiles)
+        if not (
+                'on' in self.configs and
+                'deleted' in self.configs['on']
+            ):
+            return
+        for command in self.configs['on']['deleted']:
+            subprocess.run(command)
+        return
