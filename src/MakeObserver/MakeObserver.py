@@ -7,12 +7,8 @@ from JsonFile import JsonFile
 class MakeObserver:
 
     def create(self, configJsonFileName: str):
-
         jsonObject = JsonFile().load(configJsonFileName)
         
-        commands = jsonObject['on']['any']
-        folderName = jsonObject['folder']
-        
-        observer = MyHandler(commands, [folderName])
+        observer = MyHandler(jsonObject)
 
         return observer
