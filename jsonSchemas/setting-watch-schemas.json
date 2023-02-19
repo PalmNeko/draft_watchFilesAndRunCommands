@@ -19,6 +19,13 @@
                     "items": {
                         "type": "string"
                     }
+                },
+                
+                "created": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
                 }
             }
         }

@@ -55,21 +55,17 @@ class FileWatcher():
 
     # 変更
     def on_any(self, changeFiles: list[str]):
-        print("変更がありました", ", ".join(changeFiles))
         return None
     
     # 作成時
     def on_created(self, addFiles: list[str]):
-        print("新しいファイルが追加されました:", ", ".join(addFiles))
         return None
     
     # 削除時
     def on_deleted(self, removedFiles: list[str]):
-        print("ファイルが削除されました:", ", ".join(removedFiles))
         return None
 
     # ファイル変更時
     def on_modified(self, modifiedFiles: list[str]):
-        print("ファイルが変更されました:", ", ".join(modifiedFiles))
         return None
     

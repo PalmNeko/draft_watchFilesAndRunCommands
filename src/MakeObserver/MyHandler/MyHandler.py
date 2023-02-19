@@ -9,7 +9,23 @@ class MyHandler(FileWatcher):
         self.configs = configs
     
     def on_any(self, changeFiles: list[str]):
-        print('イベント,event: ', changeFiles)
+        print('いずれかの変更がありました。: ', changeFiles)
+        if not (
+                'on' in self.configs and
+                'any' in self.configs['on']
+            ):
+            return
         for command in self.configs['on']['any']:
+            subprocess.run(command)
+        return
+
+    def on_created(self, changeFiles: list[str]):
+        print('ファイルが作成されました。: ', changeFiles)
+        if not (
+                'on' in self.configs and
+                'created' in self.configs['on']
+            ):
+            return
+        for command in self.configs['on']['created']:
             subprocess.run(command)
         return

@@ -7,6 +7,11 @@
             "label": "test",
             "type": "shell",
             "command": "python src/main.py ./test/setting-watch.json"
+        },
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "pyinstaller --onefile src/main.py "
         }
     ]
 }
